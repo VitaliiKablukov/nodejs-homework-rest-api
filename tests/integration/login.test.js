@@ -25,6 +25,7 @@ describe("login", () => {
     expect(response.body.data.user.email).toBe(
       "userTestRegistaration@gmail.com"
     );
+    expect(typeof response.body.data.user.subscription).toBe("string");
   });
 
   it("login user", async () => {
@@ -33,6 +34,10 @@ describe("login", () => {
       password: "123456",
     });
     expect(response.statusCode).toBe(200);
+    expect(response.body.data.user.email).toBe(
+      "userTestRegistaration@gmail.com"
+    );
+    expect(typeof response.body.data.user.subscription).toBe("string");
     expect(typeof response.body.data.user.token).toBe("string");
   });
   it("not login user", async () => {

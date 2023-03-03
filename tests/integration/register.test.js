@@ -22,6 +22,7 @@ describe("register", () => {
     });
     expect(response.statusCode).toBe(201);
     expect(response.body.data.user.email).toBe("userTest1@gmail.com");
+    expect(typeof response.body.data.user.subscription).toBe("string");
   });
   it("not register the same user 2 times", async () => {
     await supertest(app).post("/api/users/signup").send({

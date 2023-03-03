@@ -62,6 +62,7 @@ const updateStatusContact = async (req, res) => {
   }
   res.status(200).json(result);
 };
+
 module.exports = {
   listContacts: ctrlWrapper(listContacts),
   getContactById: ctrlWrapper(getContactById),
